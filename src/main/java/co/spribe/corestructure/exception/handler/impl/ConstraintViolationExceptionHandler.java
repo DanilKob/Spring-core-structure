@@ -2,8 +2,10 @@ package co.spribe.corestructure.exception.handler.impl;
 
 import co.spribe.corestructure.exception.ApiErrorMessages;
 import co.spribe.corestructure.exception.handler.ApiError;
+import co.spribe.corestructure.exception.handler.ApiErrorBuilderFactory;
 import co.spribe.corestructure.exception.handler.ApiSubError;
 import co.spribe.corestructure.exception.handler.ApiValidationError;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpHeaders;
@@ -24,14 +26,17 @@ import java.util.Set;
 @ControllerAdvice
 public class ConstraintViolationExceptionHandler extends ResponseEntityExceptionHandler {
 
+    private ApiErrorBuilderFactory apiErrorBuilderFactory;
+
+    @Autowired
+    public void setApiErrorBuilderFactory(ApiErrorBuilderFactory apiErrorBuilderFactory) {
+        this.apiErrorBuilderFactory = apiErrorBuilderFactory;
+    }
+
     @ExceptionHandler(ConstraintViolationException.class)
     public ResponseEntity<Object> handleConstraintViolation(
             ConstraintViolationException ex, WebRequest request
     ) {
-
-        // TODO REMOVE
-        ex.printStackTrace();
-
         ApiError apiError = buildApiError(ex, request);
         return new ResponseEntity<>(
                 apiError, new HttpHeaders(), apiError.getStatus());
@@ -56,9 +61,12 @@ public class ConstraintViolationExceptionHandler extends ResponseEntityException
             apiValidationErrors.add(apiValidationError);
         }
 
-        ApiError apiError = new ApiError(
-                HttpStatus.BAD_REQUEST, ApiErrorMessages.VALIDATION_ERROR,
-                ex.getLocalizedMessage(), apiValidationErrors);
+        ApiError apiError = apiErrorBuilderFactory.builder()
+                .setStatus(HttpStatus.BAD_REQUEST)
+                .setMessage(ApiErrorMessages.VALIDATION_ERROR)
+                .setDebugMessage(ex.getLocalizedMessage())
+                .setSubErrors(apiValidationErrors)
+                .build();
 
         return apiError;
     }

@@ -35,21 +35,9 @@ public class PingController {
     }
 
     @RequestMapping(path = "/ping")
-    public ResponseEntity<PingResponseDto> ping(@Valid @RequestBody PingDto pingDto)throws PingNotAllowedException {
-//        try {
-//            PingResponseDto pingResponseDto = pingFacade.ping(pingDto);
-//            ResponseEntity<PingResponseDto> pingResponseEntity = new ResponseEntity<>(pingResponseDto, HttpStatus.OK);
-//            return pingResponseEntity;
-//        } catch (UserNotFoundException e) {
-//            e.printStackTrace();
-//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-//        } catch (PingNotAllowedException e) {
-//            e.printStackTrace();
-//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-//        }
-        PingResponseDto pingResponseDto = null;
+    public ResponseEntity<PingResponseDto> ping(@Valid @RequestBody PingDto pingDto) throws PingNotAllowedException {
         try {
-            pingResponseDto = pingFacade.ping(pingDto);
+            PingResponseDto pingResponseDto = pingFacade.ping(pingDto);
             ResponseEntity<PingResponseDto> pingResponseEntity = new ResponseEntity<>(pingResponseDto, HttpStatus.OK);
             return pingResponseEntity;
         } catch (UserNotFoundException e) {
