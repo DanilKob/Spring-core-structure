@@ -12,6 +12,7 @@ import javax.persistence.*;
 @Entity(name = "ping")
 public class Ping {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", updatable = false, nullable = false)
     private long id;
 

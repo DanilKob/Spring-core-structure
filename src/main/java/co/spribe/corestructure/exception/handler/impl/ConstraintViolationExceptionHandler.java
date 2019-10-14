@@ -1,25 +1,36 @@
-package co.spribe.corestructure.exception.handler;
+package co.spribe.corestructure.exception.handler.impl;
 
 import co.spribe.corestructure.exception.ApiErrorMessages;
+import co.spribe.corestructure.exception.handler.ApiError;
+import co.spribe.corestructure.exception.handler.ApiSubError;
+import co.spribe.corestructure.exception.handler.ApiValidationError;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
-@Component
-public class ConstraintViolationExceptionHandler {
-    @ExceptionHandler({ConstraintViolationException.class})
+@Order(Ordered.HIGHEST_PRECEDENCE)
+@ControllerAdvice
+public class ConstraintViolationExceptionHandler extends ResponseEntityExceptionHandler {
+
+    @ExceptionHandler(ConstraintViolationException.class)
     public ResponseEntity<Object> handleConstraintViolation(
-            ConstraintViolationException ex, WebRequest request) {
+            ConstraintViolationException ex, WebRequest request
+    ) {
+
+        // TODO REMOVE
+        ex.printStackTrace();
 
         ApiError apiError = buildApiError(ex, request);
         return new ResponseEntity<>(

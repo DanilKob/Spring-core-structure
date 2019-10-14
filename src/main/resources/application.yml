@@ -44,3 +44,5 @@ logging:
               BasicBinder: TRACE
 server:
   port: 8070
+api-error:
+  debug-enabled: true
