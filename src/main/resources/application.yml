@@ -19,9 +19,11 @@ spring:
     hibernate:
       connection:
         provider_class: org.hibernate.hikaricp.internal.HikariCPConnectionProvider
-      ddl-auto: create-drop
+      ddl-auto: create
     properties:
       hibernate:
+        hbm2ddl:
+          schema_filter_provider: co.spribe.corestructure.config.CustomSchemaFilterProvider
         default_schema: pings
         format_sql: true
         jdbc:
@@ -46,3 +48,4 @@ server:
   port: 8070
 api-error:
   debug-enabled: true
+tables-on-startup-exclude : pings
