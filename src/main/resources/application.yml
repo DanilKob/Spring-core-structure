@@ -14,17 +14,17 @@ spring:
     password: postgres
     driver-class-name: org.postgresql.Driver
   jpa:
-    database: POSTGRESQL
+#    database: POSTGRESQL
     generate-ddl: true
     hibernate:
-      connection:
-        provider_class: org.hibernate.hikaricp.internal.HikariCPConnectionProvider
-      ddl-auto: create
+#      connection:
+#        provider_class: org.hibernate.hikaricp.internal.HikariCPConnectionProvider
+      ddl-auto: create-drop
     properties:
       hibernate:
         hbm2ddl:
           schema_filter_provider: co.spribe.corestructure.config.CustomSchemaFilterProvider
-        default_schema: pings
+#        default_schema: pings
         format_sql: true
         jdbc:
           lob:

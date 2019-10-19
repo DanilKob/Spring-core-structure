@@ -10,6 +10,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity(name = "ping")
+@Table(schema = Schemas.PINGS)
 public class Ping {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

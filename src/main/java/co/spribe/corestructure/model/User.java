@@ -11,6 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity(name = "user")
+@Table(schema = Schemas.PINGS)
 public class User {
 
     @Id

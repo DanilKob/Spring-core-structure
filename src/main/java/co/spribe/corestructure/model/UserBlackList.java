@@ -19,6 +19,7 @@ import javax.persistence.*;
         name = "pgsql_enum",
         typeClass = PostgreSQLEnumType.class
 )
+@Table(schema = Schemas.PINGS)
 public class UserBlackList {
 
     @Id
