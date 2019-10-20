@@ -1,5 +1,6 @@
-package co.spribe.corestructure.model;
+package co.spribe.corestructure.ping.model;
 
+import co.spribe.corestructure.config.Schemas;
 import com.vladmihalcea.hibernate.type.basic.PostgreSQLEnumType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,7 +20,7 @@ import javax.persistence.*;
         name = "pgsql_enum",
         typeClass = PostgreSQLEnumType.class
 )
-@Table(schema = Schemas.PINGS)
+@Table(name = "black_list", schema = Schemas.PINGS)
 public class UserBlackList {
 
     @Id

@@ -1,6 +1,6 @@
-package co.spribe.corestructure.repository;
+package co.spribe.corestructure.ping.repository;
 
-import co.spribe.corestructure.model.User;
+import co.spribe.corestructure.ping.model.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

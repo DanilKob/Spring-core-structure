@@ -1,7 +1,7 @@
 package co.spribe.corestructure.service.impl;
 
-import co.spribe.corestructure.model.Ping;
-import co.spribe.corestructure.repository.PingRepository;
+import co.spribe.corestructure.ping.model.Ping;
+import co.spribe.corestructure.ping.repository.PingRepository;
 import co.spribe.corestructure.service.PingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

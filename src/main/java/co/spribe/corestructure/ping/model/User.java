@@ -1,5 +1,6 @@
-package co.spribe.corestructure.model;
+package co.spribe.corestructure.ping.model;
 
+import co.spribe.corestructure.config.Schemas;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,7 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity(name = "user")
-@Table(schema = Schemas.PINGS)
+@Table(name = "user", schema = Schemas.PINGS)
 public class User {
 
     @Id

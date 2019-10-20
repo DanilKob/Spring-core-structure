@@ -1,4 +1,4 @@
-package co.spribe.corestructure.model;
+package co.spribe.corestructure.ping.model;
 
 public enum  BlackListReason {
     EXPIRED, BANNED;

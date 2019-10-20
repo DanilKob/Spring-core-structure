@@ -1,6 +1,6 @@
-package co.spribe.corestructure.repository;
+package co.spribe.corestructure.ping.repository;
 
-import co.spribe.corestructure.model.Ping;
+import co.spribe.corestructure.ping.model.Ping;
 import org.springframework.data.repository.CrudRepository;
 
 public interface PingRepository extends CrudRepository<Ping, Long> {

@@ -1,6 +1,6 @@
 package co.spribe.corestructure.service;
 
-import co.spribe.corestructure.model.User;
+import co.spribe.corestructure.ping.model.User;
 
 import java.util.Optional;
 

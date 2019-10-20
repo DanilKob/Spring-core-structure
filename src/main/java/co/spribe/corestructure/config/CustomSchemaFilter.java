@@ -38,10 +38,10 @@ public class CustomSchemaFilter implements SchemaFilter {
 
     @Override
     public boolean includeTable(Table table) {
-
-        if (table.getName().toLowerCase().equals("ping")) {
-            return false;
-        }
+//
+//        if (table.getName().toLowerCase().equals("ping")) {
+//            return false;
+//        }
 
         return true;
     }

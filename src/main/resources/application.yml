@@ -1,30 +1,13 @@
 spring:
-  datasource:
-    hikari:
-      connectionTimeout: 30000
-      idleTimeout: 30000
-      maxLifetime: 2000000
-      maximumPoolSize: 20
-      minimumIdle: 5
-      poolName: SpringBootJPAHikariCP
-    platform: postgres
-    type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:postgresql://localhost:5432/postgres
-    username: postgres
-    password: postgres
-    driver-class-name: org.postgresql.Driver
   jpa:
-#    database: POSTGRESQL
+    database: default
     generate-ddl: true
     hibernate:
-#      connection:
-#        provider_class: org.hibernate.hikaricp.internal.HikariCPConnectionProvider
       ddl-auto: create-drop
     properties:
       hibernate:
         hbm2ddl:
           schema_filter_provider: co.spribe.corestructure.config.CustomSchemaFilterProvider
-#        default_schema: pings
         format_sql: true
         jdbc:
           lob:
@@ -32,6 +15,7 @@ spring:
         show_sql: true
         use_sql: true
     show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
 logging:
   level:
     com:
@@ -49,3 +33,31 @@ server:
 api-error:
   debug-enabled: true
 tables-on-startup-exclude : pings
+ping-datasource:
+  hikari:
+    connectionTimeout: 30000
+    idleTimeout: 30000
+    maxLifetime: 2000000
+    maximumPoolSize: 20
+    minimumIdle: 5
+    poolName: SpringBootJPAHikariCP
+  type: com.zaxxer.hikari.HikariDataSource
+  platform: postgres
+  url: jdbc:postgresql://localhost:5432/postgres
+  username: postgres
+  password: postgres
+  driver-class-name: org.postgresql.Driver
+statistic-datasource:
+  hikari:
+    connectionTimeout: 30000
+    idleTimeout: 30000
+    maxLifetime: 2000000
+    maximumPoolSize: 20
+    minimumIdle: 5
+    poolName: SpringBootJPAHikariCP
+  type: com.zaxxer.hikari.HikariDataSource
+  platform: postgres
+  url: jdbc:postgresql://localhost:5432/postgres
+  username: postgres
+  password: postgres
+  driver-class-name: org.postgresql.Driver

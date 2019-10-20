@@ -1,5 +1,6 @@
-package co.spribe.corestructure.model;
+package co.spribe.corestructure.ping.model;
 
+import co.spribe.corestructure.config.Schemas;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,7 +11,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity(name = "ping")
-@Table(schema = Schemas.PINGS)
+@Table(name = "ping", schema = Schemas.PINGS)
 public class Ping {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
