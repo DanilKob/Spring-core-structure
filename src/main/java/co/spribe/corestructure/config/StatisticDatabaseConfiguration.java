@@ -19,7 +19,7 @@ import javax.sql.DataSource;
 @Configuration
 @PropertySource({ConfigFileNames.MULTI_DATA_SOURCE_CONFIG_FILE_IN_CLASSPATH})
 @EnableJpaRepositories(
-        basePackages = "co.spribe.corestructure.statistic.model",
+        basePackages = "co.spribe.corestructure.statistic.repository",
         entityManagerFactoryRef = BeanNames.STATISTIC_TRANSACTION_MANAGER_FACTORY,
         transactionManagerRef = BeanNames.STATISTIC_TRANSACTION_MANAGER)
 public class StatisticDatabaseConfiguration {
