@@ -17,7 +17,7 @@ public class UserAction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "login", unique = true, nullable = false)
+    @Column(name = "login", nullable = false)
     private String login;
 
 }

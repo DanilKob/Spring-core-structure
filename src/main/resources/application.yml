@@ -1,4 +1,6 @@
 spring:
+  datasource:
+      initialization-mode: always
   jpa:
     database: default
     generate-ddl: true
@@ -8,6 +10,7 @@ spring:
       hibernate:
         hbm2ddl:
           schema_filter_provider: co.spribe.corestructure.config.CustomSchemaFilterProvider
+          auto: create-drop
         format_sql: true
         jdbc:
           lob:
